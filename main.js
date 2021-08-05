@@ -37,20 +37,23 @@ function new_image()
 		top:ball_y,
 		left:ball_x
 	});
-	
- if ((ball_x==hole_x)&&(ball_y==hole_y)) {
-
-}
 
 window.addEventListener("keydown", my_keydown);
 
 function my_keydown(e)
 {
+	if ((ball_x==hole_x)&&(ball_y==hole_y)) {
+	canvas.remove(ball_obj);
+	document.getElementById("hd3").innerHTML="You have won Golf";
+	document.getElementById("myCanvas").style.borderColor="red";
+
+}
+	
 	keyPressed = e.keyCode;
 	console.log(keyPressed);
 	
 	
-		if(keyPressed == '38')
+		else(keyPressed == '38')
 		{
 			up();
 			console.log("up");
@@ -109,4 +112,6 @@ function my_keydown(e)
             console.log("Ball_x"+ball_x+"Ball_y"+ball_y);
             canvas.remove(ball_obj);
             new_image();
-		}}}
+		}
+	}
+}
